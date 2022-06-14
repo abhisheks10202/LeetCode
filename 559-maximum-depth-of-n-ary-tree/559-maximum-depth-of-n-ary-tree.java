@@ -18,28 +18,14 @@ class Node {
 */
 
 class Solution {
-    public int solve(Node root,int len,List<Integer>list){
-        Queue<Node>pq=new LinkedList<>();
-        pq.add(root);
-        int count=0;
-        while(!pq.isEmpty())
-        {
-            int size=pq.size();
-            count++;
-            for(int i=0;i<size;i++)
-            {
-                Node p=pq.poll();
-                pq.addAll(p.children);
-            }
-        }
-        return count;
-        
-    }
+   
     public int maxDepth(Node root) {
         if(root==null)
             return 0;
-         List<Integer>list=new ArrayList<>();
-        int len=0;
-        return solve(root,len,list);
+         int hi=1;
+        for(Node node:root.children){
+            hi=Math.max(hi,1+maxDepth(node));
+        }
+        return hi;
     }
 }
