@@ -22,8 +22,8 @@ class Solution {
        
          Queue<Node>pq=new LinkedList<>();
          pq.add(root);
-         list.add(root.val);
-         ans.add(new ArrayList<>(list));
+         // list.add(root.val);
+         // ans.add(new ArrayList<>(list));
          while(!pq.isEmpty())
          {
               
@@ -34,17 +34,9 @@ class Solution {
              {
                  Node p=pq.poll();
                  // List<Integer>list1=new ArrayList<>();
-                 
-                 for(Node node:p.children)
-                 {
-                     pq.add(node);
-                     list1.add(node.val);
-                     bool=true;
-                     
-                 }
-                 
+                pq.addAll(p.children);
+                 list1.add(p.val);   
              }
-             if(bool)
              ans.add(list1);
          }
         
@@ -58,3 +50,4 @@ class Solution {
         return ans;
     }
 }
+ 
