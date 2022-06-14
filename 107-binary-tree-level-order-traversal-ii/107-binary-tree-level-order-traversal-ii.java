@@ -21,32 +21,21 @@ class Solution {
             return ans;
        Queue<TreeNode>pq=new LinkedList<>();
         pq.add(root);
-        Stack<Integer>no=new Stack<>();
-        Stack<Integer>count=new Stack<>();
         while(!pq.isEmpty())
         {
             int size=pq.size();
+            List<Integer>list=new ArrayList<>();
             for(int i=0;i<size;i++)
             {
                 TreeNode p=pq.poll();
-                no.push(p.val);
+                list.add(p.val);
                 if(p.left!=null)pq.add(p.left);
                 if(p.right!=null)pq.add(p.right);
             }
-            count.push(size);
+            ans.add(0,list);
+          
         }
-        while(!count.isEmpty())
-        {
-            int size=count.pop();
-            List<Integer>list=new ArrayList<>();
-            while(size>0)
-            {
-                list.add(no.pop());
-                size--;
-            }
-           Collections.reverse(list);
-            ans.add(list);
-        }
+       
         return ans;
     }
 }
