@@ -32,7 +32,7 @@ class Solution {
         s1=solve(root1);
         String s2="";
         s2=solve(root2);
-        System.out.println(s1+" "+s2);
+        // System.out.println(s1+" "+s2);
         if(s1.equals(s2))
             return true;
         else return false;
