@@ -14,21 +14,14 @@
  * }
  */
 class Solution {
-    public void solve(TreeNode root){
+    public boolean solve(TreeNode root,int val){
         if(root==null)
-            return ;
-        solve(root.left);
-        solve(root.right);
-        set.add(root.val);
-       
+            return true;
+        if(root.val!=val)
+        {return false;}
+        return solve(root.left,val) && solve(root.right,val);
     }
-    Set<Integer>set=new HashSet<>();
     public boolean isUnivalTree(TreeNode root) {
-        
-        solve(root);
-         if(set.size()>1)
-            return false;
-        else return true;
-        
+       return solve(root,root.val);
     }
 }
