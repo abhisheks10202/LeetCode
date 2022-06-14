@@ -14,26 +14,25 @@
  * }
  */
 class Solution {
-    public String solve(TreeNode root){
+    public void solve(TreeNode root,List<Integer>list){
         if(root==null)
-            return "";
+            return ;
         
         if(root.left==null&&root.right==null)
         {
-            return root.val+",";
+          list.add(root.val);
+            return;
             
         }
-        String p=solve(root.left);
-        String k=solve(root.right);
-        return p+k;
+            solve(root.left,list);
+            solve(root.right,list);
     }
     public boolean leafSimilar(TreeNode root1, TreeNode root2) {
-        String s1="";
-        s1=solve(root1);
-        String s2="";
-        s2=solve(root2);
-        // System.out.println(s1+" "+s2);
-        if(s1.equals(s2))
+       List<Integer>list1=new ArrayList<>();
+        List<Integer>list2=new ArrayList<>();
+        solve(root1,list1);
+        solve(root2,list2);
+        if(list1.equals(list2))
             return true;
         else return false;
     }
