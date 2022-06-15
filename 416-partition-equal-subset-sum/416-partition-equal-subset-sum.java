@@ -7,11 +7,17 @@ class Solution {
         {
             return dp[i][sum]=1;
         }
-      int val=solve(nums,i+1,sum-nums[i],target,dp);
+        if(sum<nums[i]){
+            return dp[i][sum]=solve(nums,i+1,sum,target,dp);
+        }
+        else
+        {
+        int val=solve(nums,i+1,sum-nums[i],target,dp);
         int val2=solve(nums,i+1,sum,target,dp);
         if(val==1||val2==1)
             return dp[i][sum]=1;
         else  return dp[i][sum]=0;
+        }
     }
     public boolean canPartition(int[] nums) {
         int sum=0;
