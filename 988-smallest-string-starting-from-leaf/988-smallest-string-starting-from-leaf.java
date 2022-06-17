@@ -14,10 +14,11 @@ class Solution {
             if(res == "") res = s;
             else if(res.compareTo(s) > 0)
                 res = s;
+            return;
         }
-        else{
+        // else{
             dfs(root.left,sb + c);
             dfs(root.right,sb + c);
-        }
+        // }
     }
 }
