@@ -1,5 +1,5 @@
 # Pairs with specific difference
-## Easy 
+##  Easy 
 <div class="problem-statement">
                 <p></p><p><span style="font-size:18px">Given an array of integers,&nbsp;<strong>arr[]</strong> and a number,&nbsp;<strong>K</strong>.You&nbsp;can pair two numbers of the array if the difference between them is strictly less than <strong>K</strong>. The task is to find the maximum possible sum of such&nbsp;disjoint pairs (i.e., each element of the array can be used at most once). The Sum of <strong>P</strong> pairs is the sum of all <strong>2P</strong>&nbsp;elements of pairs.</span></p>
 
