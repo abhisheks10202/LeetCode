@@ -46,7 +46,6 @@ class Solution{
             max=Math.max(max,sum);
             if(sum<0)
             {
-                i=j+1;
                 sum=0;
             }
             j++;
