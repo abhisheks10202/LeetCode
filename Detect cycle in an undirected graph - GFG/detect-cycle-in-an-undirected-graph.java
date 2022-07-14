@@ -30,36 +30,20 @@ class GFG {
     }
 }// } Driver Code Ends
 
-class Node{
-    int first;
-    int second;
-    Node(int first,int second){
-        this.first=first;
-        this.second=second;
-    }
-}
+
 class Solution {
-    public boolean check(int node,ArrayList<ArrayList<Integer>>adj,boolean visited[]){
-         Queue<Node>q=new LinkedList<>();
-         q.add(new Node(node,-1));
+    public boolean check(int node,int parent,ArrayList<ArrayList<Integer>>adj,boolean visited[]){
         visited[node]=true;
-        while(!q.isEmpty())
-        {
-            int val=q.peek().first;
-            int par=q.peek().second;
-            q.remove();
-            
-            for(Integer v:adj.get(val))
+       
+            for(Integer v:adj.get(node))
             {
                 if(visited[v]==false)
                 {
-                    visited[v]=true;
-                    q.add(new Node(v,val));
+                   if(check(v,node,adj,visited))return true;
                 }
-                else if(v!=par)
+                else if(v!=parent)
                 return true;
             }
-        }
         return false;
     }
     // Function to detect cycle in an undirected graph.
@@ -73,7 +57,7 @@ class Solution {
         {
             if(!visited[i])
             {
-                if(check(i,adj,visited))
+                if(check(i,-1,adj,visited))
                 {
                     return true;
                 }
