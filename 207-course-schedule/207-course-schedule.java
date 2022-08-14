@@ -14,7 +14,7 @@ public boolean check(boolean visited[],boolean dfsV[],int i,ArrayList<ArrayList<
         else if(dfsV[val])return true;
     }
      dfsV[i]=false;
-         list.add(i);
+         // list.add(i);
     return false;  
  }
     public boolean canFinish(int V, int[][] graph) {
