@@ -6,21 +6,21 @@
 
 <p><strong><span style="font-size:18px">Example 1:</span></strong></p>
 
-<pre style="position: relative;"><span style="font-size:18px"><strong>Input: </strong>N = 9, K = 4<strong> </strong> 
+<pre><span style="font-size:18px"><strong>Input: </strong>N = 9, K = 4<strong> </strong> 
 arr[] = {1,3,4,9,10,11,12,17,20}
 <strong>Output:</strong> 5
 <strong>Explanation:</strong> Remove 1, 3, 4 from beginning
-and 17, 20 from the end.</span><div class="open_grepper_editor" title="Edit &amp; Save To Grepper"></div></pre>
+and 17, 20 from the end.</span></pre>
 
 <p><strong><span style="font-size:18px">Example 2:</span></strong></p>
 
-<pre style="position: relative;"><span style="font-size:18px"><strong>Input: </strong>N = 5, K = 2 
+<pre><span style="font-size:18px"><strong>Input: </strong>N = 5, K = 2 
 arr[] = {1, 5, 6, 2, 8} 
 <strong>Output:</strong> 3
 <strong>Explanation:</strong> There are multiple ways to
 remove elements in this case.
 One among them is to remove 5, 6, 8.
-The other is to remove 1, 2, 5</span><div class="open_grepper_editor" title="Edit &amp; Save To Grepper"></div></pre>
+The other is to remove 1, 2, 5</span></pre>
 
 <p><span style="font-size:18px"><strong>Your Task:</strong><br>
 You don't need to read input or print anything. Your task is to complete the function&nbsp;<strong>removals()</strong>&nbsp;which takes the&nbsp;array of&nbsp;integers&nbsp;<strong>arr,</strong>&nbsp;<strong>n&nbsp;</strong>and<strong>&nbsp;k&nbsp;</strong>as parameters and returns an integer, denotes minimum number of elements should be remove to satisfy the condition.</span></p>
