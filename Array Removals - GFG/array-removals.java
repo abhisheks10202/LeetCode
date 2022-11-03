@@ -33,23 +33,16 @@ public class Main {
 
 class Solution {
     int removals(int[] arr, int n, int k) {
-        // code here
-        if(arr.length==1&&arr[0]>k)return 0;
-        int min=Integer.MAX_VALUE;
-        boolean flag=false;
-        Arrays.sort(arr);
-        for(int i=0;i<arr.length;i++)
-        {
-            for(int j=i+1;j<arr.length;j++)
-            {
-                if(arr[j]-arr[i]<=k)
-                {
-                    min=Math.min(min,arr.length-(j-i+1));
-                }
-            }
-        }
-       if( min==Integer.MAX_VALUE)return arr.length-1;
-       else return min;
-        
+         Arrays.sort(arr);
+        int i=0, j=0, maxRange = 0;
+        while(j<n){
+            if(arr[j]-arr[i] <= k) j++;
+            // if diff is more than k increase left pointer ( i )
+            else if(i < j) i++;
+            // calculate and save the max value of ( maxRange or j-i )
+            maxRange = Math.max(maxRange, j - i);
     }
+    return n-maxRange;
 }
+
+    }
