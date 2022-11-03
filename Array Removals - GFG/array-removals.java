@@ -1,4 +1,4 @@
-// { Driver Code Starts
+//{ Driver Code Starts
 //Initial Template for Java
 
 import java.util.*;
@@ -25,26 +25,31 @@ public class Main {
         }
     }
 }
+
 // } Driver Code Ends
 
 
 //User function Template for Java
 
 class Solution {
-    public int solve(int arr[],int i,int j,int n,int k,int dp[][]){
-        if(arr[j]-arr[i]<=k)return 0;
-        if(dp[i][j]!=-1)return dp[i][j];
-        
-        if(arr[j]-arr[i]>k)
-        dp[i][j]=1+Math.min(solve(arr,i+1,j,n,k,dp),solve(arr,i,j-1,n,k,dp));
-        return dp[i][j];
-    }
     int removals(int[] arr, int n, int k) {
         // code here
+        if(arr.length==1&&arr[0]>k)return 0;
+        int min=Integer.MAX_VALUE;
+        boolean flag=false;
         Arrays.sort(arr);
-        int dp[][]=new int[n][n];
-        for(int a[]:dp)
-        Arrays.fill(a,-1);
-        return solve(arr,0,n-1,n,k,dp);
+        for(int i=0;i<arr.length;i++)
+        {
+            for(int j=i+1;j<arr.length;j++)
+            {
+                if(arr[j]-arr[i]<=k)
+                {
+                    min=Math.min(min,arr.length-(j-i+1));
+                }
+            }
+        }
+       if( min==Integer.MAX_VALUE)return arr.length-1;
+       else return min;
+        
     }
 }
