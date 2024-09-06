@@ -11,9 +11,12 @@
 class Solution {
     public ListNode modifiedList(int[] nums, ListNode head) {
         // List<Integer>list=new ArrayList<>();
-        HashMap<Integer,Integer>hm=new HashMap<>();
+        int max =0;
         for(int val:nums)
-        hm.put(val,0);
+        max=val>max?val:max;
+        int arr[]=new int[max+1];
+        for(int val:nums)
+        arr[val]=1;
 
         ListNode prev=new ListNode(0);
         prev.next=head;
@@ -22,7 +25,7 @@ class Solution {
 
         while(curr!=null)
         {
-            if(hm.containsKey(curr.val))
+            if(curr.val<=max&&arr[curr.val]==1)
             {
                 p.next=curr.next;
                 curr=p.next;
