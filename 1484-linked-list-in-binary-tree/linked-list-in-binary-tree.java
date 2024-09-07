@@ -24,20 +24,17 @@
  * }
  */
 class Solution {
-    public boolean check(ListNode head, TreeNode root) {
-        if (head == null)
-            return true;
-        if(root==null)return false;
-         if(head.val!=root.val)
-        return false;
-        return check(head.next,root.left)||check(head.next,root.right);
-        
+   boolean dfs(ListNode head, ListNode cur, TreeNode root) {
+        if(cur == null) return true;
+        if(root == null) return false;
+        if(cur.val == root.val) cur = cur.next;
+        else if (head.val == root.val) head = head.next;
+        else cur = head;
+        return dfs(head, cur, root.left) || dfs(head, cur, root.right);
     }
 
     public boolean isSubPath(ListNode head, TreeNode root) {
-        if(root==null)return false;
-
-        return check(head, root) || isSubPath(head, root.left) || isSubPath(head, root.right);
+      return dfs(head, head, root);
 
     }
 
