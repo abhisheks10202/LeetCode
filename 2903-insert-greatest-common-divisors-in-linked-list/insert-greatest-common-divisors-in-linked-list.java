@@ -11,14 +11,19 @@
 class Solution {
     public int gcd(int a,int b)
     {
-        int min=a>b?b:a;
-        int max=a>b?a:b;
-       
-        for(int i=min;i>=1;i--)
-        {
-            if(max%i==0&&min%i==0)return i;
-        }
-         return 1;
+            if (a == 0)
+            return b;
+        if (b == 0)
+            return a;
+
+        // Base case
+        if (a == b)
+            return a;
+
+        // a is greater
+        if (a > b)
+            return gcd(a - b, b);
+        return gcd(a, b - a);
     }
     public ListNode insertGreatestCommonDivisors(ListNode head) {
 
